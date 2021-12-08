@@ -2,3 +2,6 @@
 
 TODO: Enter the cookbook description here.
 
+The cookbook installs:
+- mongo db
+- tomcat
