@@ -1,0 +1,62 @@
+I, [2021-12-09T12:22:27.261088 #4510]  INFO -- default-centos-8: -----> Converging <default-centos-8>...
+I, [2021-12-09T12:22:27.312016 #4510]  INFO -- default-centos-8: Preparing files for transfer
+W, [2021-12-09T12:22:27.312117 #4510]  WARN -- default-centos-8: You must set your run_list in your Policyfile instead of kitchen config. The run_list in your config will be ignored.
+W, [2021-12-09T12:22:27.312149 #4510]  WARN -- default-centos-8: Ignored run_list: ["recipe[mongo_db_setup::tomcat]"]
+I, [2021-12-09T12:22:27.312277 #4510]  INFO -- default-centos-8: Installing cookbooks for Policyfile /root/chef-repo/cookbooks/mongo_db_setup/Policyfile.rb using `/opt/chef-workstation/bin/chef-cli install`
+I, [2021-12-09T12:22:27.999151 #4510]  INFO -- default-centos-8: Installing cookbooks from lock
+I, [2021-12-09T12:22:28.004513 #4510]  INFO -- default-centos-8: Installing mongo_db_setup 0.1.0
+I, [2021-12-09T12:22:28.015164 #4510]  INFO -- default-centos-8: Preparing dna.json
+I, [2021-12-09T12:22:28.015589 #4510]  INFO -- default-centos-8: Exporting cookbook dependencies from Policyfile /tmp/default-centos-8-sandbox-20211209-4510-6nigie using `/opt/chef-workstation/bin/chef-cli export`...
+I, [2021-12-09T12:22:29.760230 #4510]  INFO -- default-centos-8: Exported policy 'mongo_db_setup' to /tmp/default-centos-8-sandbox-20211209-4510-6nigie
+I, [2021-12-09T12:22:29.760364 #4510]  INFO -- default-centos-8: 
+I, [2021-12-09T12:22:29.760409 #4510]  INFO -- default-centos-8: To converge this system with the exported policy, run:
+I, [2021-12-09T12:22:29.760447 #4510]  INFO -- default-centos-8:   cd /tmp/default-centos-8-sandbox-20211209-4510-6nigie
+I, [2021-12-09T12:22:29.760481 #4510]  INFO -- default-centos-8:   chef-client -z
+I, [2021-12-09T12:22:29.773374 #4510]  INFO -- default-centos-8: Removing non-cookbook files before transfer
+I, [2021-12-09T12:22:29.774113 #4510]  INFO -- default-centos-8: Preparing validation.pem
+I, [2021-12-09T12:22:29.774874 #4510]  INFO -- default-centos-8: Preparing client.rb
+I, [2021-12-09T12:22:30.013535 #4510]  INFO -- default-centos-8: -----> Chef installation detected (install only if missing)
+I, [2021-12-09T12:22:30.100065 #4510]  INFO -- default-centos-8: Transferring files to <default-centos-8>
+I, [2021-12-09T12:22:32.109681 #4510]  INFO -- default-centos-8: Chef Infra Client, version 17.7.29
+I, [2021-12-09T12:22:32.109746 #4510]  INFO -- default-centos-8: Patents: https://www.chef.io/patents
+I, [2021-12-09T12:22:32.109762 #4510]  INFO -- default-centos-8: Infra Phase starting
+I, [2021-12-09T12:22:34.504739 #4510]  INFO -- default-centos-8: Using Policyfile 'mongo_db_setup' at revision '2342de4da6243c9d829820334a634bf0906b2a98c2d3511063b99781c5005d8f'
+I, [2021-12-09T12:22:34.504807 #4510]  INFO -- default-centos-8: Resolving cookbooks for run list: ["mongo_db_setup::default@0.1.0 (6490ec6)"]
+I, [2021-12-09T12:22:34.512275 #4510]  INFO -- default-centos-8: Synchronizing cookbooks:
+I, [2021-12-09T12:22:34.518308 #4510]  INFO -- default-centos-8:   - mongo_db_setup (0.1.0)
+I, [2021-12-09T12:22:34.534320 #4510]  INFO -- default-centos-8: Installing cookbook gem dependencies:
+I, [2021-12-09T12:22:34.534384 #4510]  INFO -- default-centos-8: Compiling cookbooks...
+I, [2021-12-09T12:22:34.709186 #4510]  INFO -- default-centos-8: Loading Chef InSpec profile files:
+I, [2021-12-09T12:22:34.709247 #4510]  INFO -- default-centos-8: Loading Chef InSpec input files:
+I, [2021-12-09T12:22:34.709263 #4510]  INFO -- default-centos-8: Loading Chef InSpec waiver files:
+I, [2021-12-09T12:22:34.709276 #4510]  INFO -- default-centos-8: Converging 15 resources
+I, [2021-12-09T12:22:34.709287 #4510]  INFO -- default-centos-8: Recipe: mongo_db_setup::mongo_db
+I, [2021-12-09T12:22:34.719787 #4510]  INFO -- default-centos-8:   * cookbook_file[/etc/yum.repos.d/mongodb-org.repo] action create (up to date)
+I, [2021-12-09T12:22:36.255150 #4510]  INFO -- default-centos-8:   * dnf_package[mongodb-org] action install (up to date)
+I, [2021-12-09T12:22:36.269701 #4510]  INFO -- default-centos-8:   * cookbook_file[/etc/systemd/system/disable-thp.service] action create (up to date)
+I, [2021-12-09T12:22:36.269802 #4510]  INFO -- default-centos-8:   * service[disable-thp] action nothing (skipped due to action :nothing)
+I, [2021-12-09T12:22:36.298548 #4510]  INFO -- default-centos-8:   * service[disable-thp] action enable (up to date)
+I, [2021-12-09T12:22:36.370869 #4510]  INFO -- default-centos-8:   * service[disable-thp] action start
+I, [2021-12-09T12:22:36.370934 #4510]  INFO -- default-centos-8:     - start service service[disable-thp]
+I, [2021-12-09T12:22:36.395089 #4510]  INFO -- default-centos-8:   * service[mongod] action enable (up to date)
+I, [2021-12-09T12:22:36.417955 #4510]  INFO -- default-centos-8:   * service[mongod] action start (up to date)
+I, [2021-12-09T12:22:36.418015 #4510]  INFO -- default-centos-8: Recipe: mongo_db_setup::tomcat
+I, [2021-12-09T12:22:36.419665 #4510]  INFO -- default-centos-8:   * dnf_package[java-1.8.0-openjdk-headless] action install (up to date)
+I, [2021-12-09T12:22:36.436904 #4510]  INFO -- default-centos-8:   * directory[/tmp/tomcat] action create (up to date)
+I, [2021-12-09T12:22:37.067402 #4510]  INFO -- default-centos-8:   * remote_file[/tmp/tomcat/apache-tomcat-9.0.33.tar.gz] action create (up to date)
+I, [2021-12-09T12:22:37.101309 #4510]  INFO -- default-centos-8:   * archive_file[/tmp/tomcat/apache-tomcat-9.0.33.tar.gz] action extract (up to date)
+I, [2021-12-09T12:22:37.106051 #4510]  INFO -- default-centos-8:   * linux_user[tomcat] action create (up to date)
+I, [2021-12-09T12:22:37.147757 #4510]  INFO -- default-centos-8:   * bash[Change owner] action run
+I, [2021-12-09T12:22:37.147836 #4510]  INFO -- default-centos-8:     - execute "bash" 
+I, [2021-12-09T12:22:37.155428 #4510]  INFO -- default-centos-8:   * cookbook_file[/etc/systemd/system/tomcat.service] action create (up to date)
+I, [2021-12-09T12:22:37.353530 #4510]  INFO -- default-centos-8:   * bash[Reload daemon] action run
+I, [2021-12-09T12:22:37.353612 #4510]  INFO -- default-centos-8:     - execute "bash" 
+I, [2021-12-09T12:22:37.377730 #4510]  INFO -- default-centos-8:   * service[tomcat] action enable (up to date)
+I, [2021-12-09T12:22:37.458932 #4510]  INFO -- default-centos-8:   * service[tomcat] action start
+I, [2021-12-09T12:22:37.459010 #4510]  INFO -- default-centos-8:     - start service service[tomcat]
+I, [2021-12-09T12:22:37.587492 #4510]  INFO -- default-centos-8: 
+I, [2021-12-09T12:22:37.587575 #4510]  INFO -- default-centos-8: Running handlers:
+I, [2021-12-09T12:22:37.587594 #4510]  INFO -- default-centos-8: Running handlers complete
+I, [2021-12-09T12:22:37.587610 #4510]  INFO -- default-centos-8: Infra Phase complete, 4/18 resources updated in 05 seconds
+I, [2021-12-09T12:22:37.616930 #4510]  INFO -- default-centos-8: Downloading files from <default-centos-8>
+I, [2021-12-09T12:22:37.619384 #4510]  INFO -- default-centos-8: Finished converging <default-centos-8> (0m10.36s).

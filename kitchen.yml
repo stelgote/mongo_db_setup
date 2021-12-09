@@ -18,7 +18,7 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[mongo_db_setup::default]
+            - recipe[mongo_db_setup::tomcat]
     verifier:
       inspec_tests:
         - test/integration/default

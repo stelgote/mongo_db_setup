@@ -9,7 +9,7 @@ remote_file "/tmp/tomcat/#{node['mongo_db_setup']['tomcat_file']}" do
   action :create
 end
 
-archive_file "#{node['mongo_db_setup']['tomcat_file']}" do
+archive_file "/tmp/tomcat/#{node['mongo_db_setup']['tomcat_file']}" do
   path "/tmp/tomcat/#{node['mongo_db_setup']['tomcat_file']}"
   destination '/usr/local/tomcat/'
   strip_components 1
@@ -24,10 +24,16 @@ user 'tomcat' do
   action :create
 end
 
-directory '/usr/local/tomcat' do
-  owner 'tomcat'
-  group 'tomcat'
-  recursive true
+#directory '/usr/local/tomcat' do
+#  owner 'tomcat'
+#  group 'tomcat'
+#  recursive true
+#end
+
+bash 'Change owner' do
+  code <<-EOH
+    chown -R tomcat:tomcat /usr/local/tomcat/
+  EOH
 end
 
 cookbook_file '/etc/systemd/system/tomcat.service' do
@@ -35,12 +41,16 @@ cookbook_file '/etc/systemd/system/tomcat.service' do
   mode '0755'
 end
 
-service 'tomcat' do
-  subscribes :reload, 'cookbook_file[/etc/systemd/system/tomcat.service]', :immediately
+#service 'tomcat' do
+#  subscribes :reload, 'cookbook_file[/etc/systemd/system/tomcat.service]', :immediately
+#end
+
+bash 'Reload daemon' do
+  code <<-EOH
+    systemctl daemon-reload
+  EOH
 end
 
 service 'tomcat' do
   action [ :enable, :start ]
 end
-
-
