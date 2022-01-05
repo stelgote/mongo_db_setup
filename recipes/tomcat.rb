@@ -1,5 +1,11 @@
-dnf_package 'java-1.8.0-openjdk-headless' do
-  action :install
+if platform_version.include? '7'
+  yum_package 'java-1.8.0-openjdk-headless' do
+    action :install
+  end
+else
+  dnf_package 'java-1.8.0-openjdk-headless' do
+    action :install
+  end
 end
 
 directory '/tmp/tomcat'
@@ -30,15 +36,19 @@ end
 #  recursive true
 #end
 
+ownership = shell_out("stat -c %U:%G /usr/local/tomcat/").stdout
+
 bash 'Change owner' do
   code <<-EOH
     chown -R tomcat:tomcat /usr/local/tomcat/
   EOH
+  not_if { ownership.include? 'tomcat:tomcat' }
 end
 
 cookbook_file '/etc/systemd/system/tomcat.service' do
   source 'tomcat'
   mode '0755'
+  notifies :run, 'bash[Reload daemon]', :immediately
 end
 
 #service 'tomcat' do
@@ -49,6 +59,7 @@ bash 'Reload daemon' do
   code <<-EOH
     systemctl daemon-reload
   EOH
+  action :nothing
 end
 
 service 'tomcat' do

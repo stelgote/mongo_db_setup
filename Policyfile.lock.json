@@ -1,5 +1,5 @@
 {
-  "revision_id": "2342de4da6243c9d829820334a634bf0906b2a98c2d3511063b99781c5005d8f",
+  "revision_id": "611b5047d5140d27646277b6e95424bcdbc789844863aec70d03816dc360fc61",
   "name": "mongo_db_setup",
   "run_list": [
     "recipe[mongo_db_setup::default]"
@@ -10,14 +10,14 @@
   "cookbook_locks": {
     "mongo_db_setup": {
       "version": "0.1.0",
-      "identifier": "6490ec6329ad84c4f81004a7965b499e51c1409b",
-      "dotted_decimal_identifier": "28306842621422980.55441843116545627.80944325279899",
+      "identifier": "1bc0623e03093de373d060bc3dadbfcf69aa6c49",
+      "dotted_decimal_identifier": "7811352550902077.64022158526660013.210897551912009",
       "source": ".",
       "cache_key": null,
       "scm_info": {
         "scm": "git",
         "remote": "git@github.com:stelgote/mongo_db_setup.git",
-        "revision": "372b8547ce8920e2a7942af03d7ae2c41e6885f5",
+        "revision": "a7b336df09f1c7513429c41cd6151f843ac59cc6",
         "working_tree_clean": false,
         "published": true,
         "synchronized_remote_branches": [
